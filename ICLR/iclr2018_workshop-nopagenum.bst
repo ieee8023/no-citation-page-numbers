@@ -2,7 +2,7 @@
 %% A copy of iclm2010.bst, which is a modification of `plainnl.bst' for use with natbib package 
 %%
 %% Copyright 2010 Hal Daum\'e III
-%% Modified by J. Fürnkranz
+%% Modified by J. F rnkranz
 %% - Changed labels from (X and Y, 2000) to (X & Y, 2000)
 %%
 %% Copyright 1993-2007 Patrick W Daly
@@ -275,21 +275,18 @@ FUNCTION {format.editors}
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
-    { new.block "ISBN " isbn * }
   if$
 }
 
 FUNCTION {format.issn}
 { issn empty$
     { "" }
-    { new.block "ISSN " issn * }
   if$
 }
 
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { new.block "URL \url{" url * "}" * }
   if$
 }
 
@@ -519,14 +516,7 @@ FUNCTION {multi.page.check}
 }
 
 FUNCTION {format.pages}
-{ pages empty$
-    { "" }
-    { pages multi.page.check
-        { "pp.\ " pages n.dashify tie.or.space.connect }
-        { "pp.\ " pages tie.or.space.connect }
-      if$
-    }
-  if$
+{ 
 }
 
 FUNCTION {format.eid}
@@ -537,24 +527,7 @@ FUNCTION {format.eid}
 }
 
 FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ":\penalty0 " * pages n.dashify * }
-      if$
-    }
-  if$
+{ 
 }
 
 FUNCTION {format.vol.num.eid}
@@ -1438,3 +1411,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
