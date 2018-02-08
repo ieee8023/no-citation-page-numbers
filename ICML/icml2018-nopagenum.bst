@@ -2,7 +2,7 @@
 %% A modification of `plainnl.bst' for use with natbib package 
 %%
 %% Copyright 2010 Hal Daum\'e III
-%% Modified by J. Fürnkranz
+%% Modified by J. FŸrnkranz
 %% - Changed labels from (X and Y, 2000) to (X & Y, 2000)
 %% - Changed References to last name first and abbreviated first names.
 %%
@@ -276,21 +276,18 @@ FUNCTION {format.editors}
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
-    { new.block "ISBN " isbn * }
   if$
 }
 
 FUNCTION {format.issn}
 { issn empty$
     { "" }
-    { new.block "ISSN " issn * }
   if$
 }
 
 FUNCTION {format.url}
 { url empty$
     { "" }
-    { new.block "URL \url{" url * "}" * }
   if$
 }
 
@@ -521,12 +518,7 @@ FUNCTION {multi.page.check}
 
 FUNCTION {format.pages}
 { pages empty$
-    { "" }
-    { pages multi.page.check
-        { "pp.\ " pages n.dashify tie.or.space.connect }
-        { "pp.\ " pages tie.or.space.connect }
-      if$
-    }
+    { "" } 
   if$
 }
 
@@ -538,61 +530,15 @@ FUNCTION {format.eid}
 }
 
 FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ":\penalty0 " * pages n.dashify * }
-      if$
-    }
-  if$
+{
 }
 
 FUNCTION {format.vol.num.eid}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  eid empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.eid }
-        { ":\penalty0 " * eid * }
-      if$
-    }
-  if$
+{
 }
 
 FUNCTION {format.chapter.pages}
-{ chapter empty$
-    'format.pages
-    { type empty$
-        { "chapter" }
-        { type "l" change.case$ }
-      if$
-      chapter tie.or.space.connect
-      pages empty$
-        'skip$
-        { ", " * format.pages * }
-      if$
-    }
-  if$
+{ 
 }
 
 FUNCTION {format.in.ed.booktitle}
