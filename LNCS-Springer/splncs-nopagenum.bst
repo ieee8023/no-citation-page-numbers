@@ -346,7 +346,7 @@ FUNCTION {format.date}
     }
     { month empty$
         'year
-        { * year * }
+        { year }
       if$
     }
   if$
@@ -1070,6 +1070,5 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-
 
 
