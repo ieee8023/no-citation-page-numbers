@@ -1969,9 +1969,7 @@ FUNCTION {article}
   name.or.dash
   format.article.title "title" output.warn
   format.journal "journal" bibinfo.check "journal" output.warn
-  format.volume output
   format.number.if.use.for.article output
-  format.pages output
   format.date "year" output.warn
   format.note output
   format.url output
@@ -1995,7 +1993,6 @@ FUNCTION {book}
     { format.editors output }
   if$
   format.address.publisher.date output
-  format.volume output
   format.number output
   format.note output
   format.url output
@@ -2050,10 +2047,8 @@ FUNCTION {inbook}
   format.book.title.edition output
   format.series output
   format.address.publisher.date output
-  format.volume output
   format.number output
   format.chapter output
-  format.pages output
   format.note output
   format.url output
   fin.entry
@@ -2071,10 +2066,8 @@ FUNCTION {incollection}
   format.series output
   format.editors output
   format.address.publisher.date.nowarn output
-  format.volume output
   format.number output
   format.chapter output
-  format.pages output
   format.note output
   format.url output
   fin.entry
@@ -2091,7 +2084,6 @@ FUNCTION {inproceedings}
   format.in.booktitle "booktitle" output.warn
   format.series output
   format.editors output
-  format.volume output
   format.number output
   publisher empty$
     { format.address.organization.date output }
@@ -2100,7 +2092,6 @@ FUNCTION {inproceedings}
     }
   if$
   format.paper output
-  format.pages output
   format.note output
   format.url output
   fin.entry
@@ -2151,7 +2142,6 @@ FUNCTION {misc}
   format.howpublished "howpublished" bibinfo.check output 
   format.organization "organization" bibinfo.check output
   format.address "address" bibinfo.check output
-  format.pages output
   format.date output
   format.note output
   format.url output
@@ -2184,7 +2174,6 @@ FUNCTION {periodical}
   name.or.dash
   format.book.title "title" output.warn
   format.series output
-  format.volume output
   format.number output
   format.organization "organization" bibinfo.check output
   format.date "year" output.warn
@@ -2219,7 +2208,6 @@ FUNCTION {proceedings}
   name.or.dash
   format.book.title "title" output.warn
   format.series output
-  format.volume output
   format.number output
   publisher empty$
     { format.address.organization.date output }
