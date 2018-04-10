@@ -273,7 +273,7 @@ FUNCTION {format.date}
     }
     { month empty$
         'year
-        { month " " * year * }
+        { * year * }
       if$
     }
   if$
@@ -365,14 +365,7 @@ FUNCTION {multi.page.check}
 }
 
 FUNCTION {format.pages}
-{ pages empty$
-    { "" }
-    { pages multi.page.check
-        { "pages" pages n.dashify tie.or.space.connect }
-        { "page" pages tie.or.space.connect }
-      if$
-    }
-  if$
+{
 }
 
 FUNCTION {format.vol.num.pages}
