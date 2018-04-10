@@ -273,7 +273,7 @@ FUNCTION {format.date}
     }
     { month empty$
         'year
-        { month " " * year * }
+        { * year * }
       if$
     }
   if$
@@ -299,16 +299,7 @@ FUNCTION {either.or.check}
 }
 
 FUNCTION {format.bvolume}
-{ volume empty$
-    { "" }
-    { "volume" volume tie.or.space.connect
-      series empty$
-        'skip$
-        { " of " * series emphasize * }
-      if$
-      "volume and number" number either.or.check
-    }
-  if$
+{ 
 }
 
 FUNCTION {format.number.series}
@@ -365,35 +356,12 @@ FUNCTION {multi.page.check}
 }
 
 FUNCTION {format.pages}
-{ pages empty$
-    { "" }
-    { pages multi.page.check
-        { "pages" pages n.dashify tie.or.space.connect }
-        { "page" pages tie.or.space.connect }
-      if$
-    }
-  if$
+{
+{ "" } 
 }
 
 FUNCTION {format.vol.num.pages}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "(" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  pages empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.pages }
-        { ":" * pages n.dashify * }
-      if$
-    }
-  if$
+{ 
 }
 
 FUNCTION {format.chapter.pages}
@@ -949,3 +917,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
