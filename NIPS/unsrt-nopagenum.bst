@@ -357,7 +357,6 @@ FUNCTION {multi.page.check}
 
 FUNCTION {format.pages}
 {
-{ "" } 
 }
 
 FUNCTION {format.vol.num.pages}
@@ -917,4 +916,3 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-
