@@ -423,7 +423,7 @@ FUNCTION {format.date}
   if$
   month empty$
     'skip$
-    { month
+    { 
       " " * swap$ *
     }
   if$
