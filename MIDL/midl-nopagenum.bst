@@ -1,8 +1,8 @@
-%% File: `iclr2018.bst'
+%% File: `iclr2017.bst'
 %% A copy of iclm2010.bst, which is a modification of `plainnl.bst' for use with natbib package 
 %%
 %% Copyright 2010 Hal Daum\'e III
-%% Modified by J. F rnkranz
+%% Modified by J. Fürnkranz
 %% - Changed labels from (X and Y, 2000) to (X & Y, 2000)
 %%
 %% Copyright 1993-2007 Patrick W Daly
@@ -275,17 +275,28 @@ FUNCTION {format.editors}
 FUNCTION {format.isbn}
 { isbn empty$
     { "" }
+    { new.block "ISBN " isbn * }
   if$
 }
 
 FUNCTION {format.issn}
-{ issn empty$
+{ doi empty$
+    { issn empty$
+        { "" }
+        { new.block "ISSN " issn * }
+      if$
+    }
     { "" }
   if$
 }
 
 FUNCTION {format.url}
-{ url empty$
+{ doi empty$
+    { url empty$
+        { "" }
+        { new.block "URL \url{" url * "}" * }
+      if$
+    }
     { "" }
   if$
 }
@@ -423,7 +434,8 @@ FUNCTION {format.date}
   if$
   month empty$
     'skip$
-    {
+    { ""
+      " " * swap$ *
     }
   if$
   extra.label *
@@ -515,39 +527,19 @@ FUNCTION {multi.page.check}
 }
 
 FUNCTION {format.pages}
-{ 
+{ ""
 }
 
 FUNCTION {format.eid}
-{ eid empty$
-    { "" }
-    { "art." eid tie.or.space.connect }
-  if$
+{ ""
 }
 
 FUNCTION {format.vol.num.pages}
-{ 
+{ ""
 }
 
 FUNCTION {format.vol.num.eid}
-{ volume field.or.null
-  number empty$
-    'skip$
-    { "\penalty0 (" number * ")" * *
-      volume empty$
-        { "there's a number but no volume in " cite$ * warning$ }
-        'skip$
-      if$
-    }
-  if$
-  eid empty$
-    'skip$
-    { duplicate$ empty$
-        { pop$ format.eid }
-        { ":\penalty0 " * eid * }
-      if$
-    }
-  if$
+{ ""
 }
 
 FUNCTION {format.chapter.pages}
